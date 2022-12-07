@@ -5,8 +5,19 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { makeStyles } from '@mui/material';
+const useStyles = makeStyles({
+  root: {
+    width: 500,
+    position:"fixed",
+    bottom:0,
+    backgroundColor:"#2d313a",
+    zIndex: 100,
+  }
 
+})
 export default function SimpleBottomNavigation() {
+  const classes = useStyles()
   const [value, setValue] = React.useState(0);
 
   return (
@@ -14,6 +25,7 @@ export default function SimpleBottomNavigation() {
       <BottomNavigation
         showLabels
         value={value}
+        className={classes.root}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
